@@ -1,0 +1,29 @@
+<?php
+session_start();
+if(!isset($_SESSION["access"]) || $_SESSION["access"] !== true){
+    header("location: ../signin");
+    exit;
+}
+?>
+<?php include("includes/navbar.php"); ?>
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Year Settings</h1>
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <?php include("views/YearSettingsViews/yearviews.php"); ?>
+        </div>
+    </div>
+</div>
+
+<?php include("includes/scripts.php"); ?>
+
