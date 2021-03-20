@@ -118,9 +118,10 @@ valkeypress2.addEventListener("keyup", event => {
         onsaveprofileadmin();
     }
 })
+
 function onsaveprofileadmin(){
-   var upfname = $('#pfirstname').val();
-   var uplname = $('#plastname').val();
+    var upfname = $('#pfirstname').val();
+    var uplname = $('#plastname').val();
     profileprofilevalidate(upfname, uplname)
 }
 
@@ -137,8 +138,8 @@ function profileprofilevalidate(upfname, uplname) {
 function profilePromise(upfname, uplname)
 {
     var testArray = {
-        'data1': uplname,
-        'data2' : upfname
+        'data1': upfname,
+        'data2' : uplname
     }
     const promise = new Promise(resolve => {
         profileEndpoint(testArray, resolve);
@@ -146,6 +147,7 @@ function profilePromise(upfname, uplname)
 
     promise
         .then(response => {
+            console.log(response);
             var hammerism = JSON.parse(response);
             if(hammerism.statusCode === 200){
                 swal("Nice!", "Successfully Update!", "success");

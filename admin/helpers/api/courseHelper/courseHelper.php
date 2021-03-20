@@ -25,3 +25,7 @@ if(isset($_POST['revokeTrigger']) == 1){
     $mainControllerCourse = new mainControllerCourse();
     $mainControllerCourse->HTTPRevoke();
 }
+if(isset($_POST['triggerringtest']) == 1) {
+    $mainControllerCourse = new mainControllerCourse();
+    $mainControllerCourse->walltest();
+}

@@ -1,11 +1,59 @@
 let modifier = false;
-let coursename = document.getElementById("txtcoursename");
+var coursename = document.getElementById("txtcoursename");
 let coursefixed = document.getElementById("txtfixedcourse");
 const base = "helpers";
 const get = "get";
 
 let muid = "";
 let revokeID = 0;
+//section settings
+$('#onsection').click(() => {
+    var sectionArray= { 
+        'section1' : keysection.value,
+        'sectiontrigger' : 1
+    }
+    _section_validate(sectionArray);
+
+})
+
+const _section_validate = (array) => {
+    if (!array.section1) {
+            swal("Oops!", "Empty section please type something", "error");
+            return false;
+        }else {
+            section_PromiseAll(array);
+        }
+}
+
+async function section_PromiseAll(cokearray){
+    await Promise.all([section_constructPromise(cokearray)]);
+}
+
+async function section_constructPromise(spritearray){
+    const promise = new Promise(resolve => {
+        section_mainrequest(spritearray, resolve);
+    })
+    await promise.then(response => {
+        var destroyJSON = JSON.parse(response);
+        if(destroyJSON.statusCode === 200) {
+            swal("Nice!" , "Successfully Added!", "success");
+            setTimeout(() => {
+                window.location.href = "http://localhost/webattendance/admin/section";
+            }, 1000)
+        }
+    })
+}
+
+const section_mainrequest = (array, resolve) => {
+    $.ajax({
+        method: post,
+        url: helpers + "/api/sectionHelper/sectionHelper.php",
+        data: array,
+        success: (response) => {
+            resolve(response);
+        }
+    })
+}
 coursename.addEventListener("keyup", event => {
     if(event.keyCode === 13)
     {
@@ -224,6 +272,8 @@ $("#searchcourse").on("keyup", function () {
     
 });
 
+
+
 $('#data').after('<div id="nav"></div>');
 var rowsShown = 4;
 var rowsTotal = $('#data tbody tr').length;
@@ -245,4 +295,5 @@ $('#nav a').bind('click', function () {
     $('#data tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
         css('display', 'table-row').animate({ opacity: 1 }, 300);
 });
+
 

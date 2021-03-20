@@ -23,7 +23,7 @@
                    <div class="col-sm">
                        <div class="form-outline">
                            <label>Firstname</label>
-                           <input type="text" id="pfirstname" class="form-control" placeholder="<?php echo $row['firstname'] ?>" />
+                           <input type="text" id="pfirstname" class="form-control" value="<?php echo $row['firstname'] ?>" />
 
                        </div>
                        <div class="form-outline">
@@ -35,7 +35,7 @@
                    <div class="col-sm">
                        <div class="form-outline">
                            <label>Lastname</label>
-                           <input type="text" id="plastname" class="form-control" placeholder="<?php echo $row['lastname'] ?>" />
+                           <input type="text" id="plastname" class="form-control" value="<?php echo $row['lastname'] ?>" />
 
                        </div>
                        <div class="form-outline">

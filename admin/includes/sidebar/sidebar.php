@@ -53,6 +53,12 @@
                         <p >Year Settings</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="section" class="nav-link">
+
+                        <p >Section Settings</p><span class="right badge badge-warning">Working</span>
+                    </a>
+                </li>
             </ul>
         </li>
 

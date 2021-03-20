@@ -19,6 +19,9 @@ class course_Controller {
     public function HTTPRevoke(){
         $this->mainrevokeController();
     }
+    public function walltest() {
+        $this->testinsert();
+    }
 }
 
 class mainControllerCourse extends course_Controller
@@ -44,6 +47,11 @@ class mainControllerCourse extends course_Controller
     protected function mainrevokeController(){
        $mainRevokeCore = new mainRevokeCore();
        $mainRevokeCore->revokeWall($_POST['id']);
+    }
+    protected function testinsert() {
+        //main core
+        $mainCourseCore = new mainCourseCore();
+        $mainCourseCore->testinsertcore($_POST['mytestdata']);
     }
 }
 

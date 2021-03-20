@@ -10,6 +10,9 @@ class course_Core {
     public function HTTP_WALL(){
         $this->HTTPGet_Query();
     }
+    public function testinsertcore($datatest) {
+            $this->testmaincoreinsert($datatest);
+    }
 }
 
 class mainCourseCore extends course_Core {
@@ -22,7 +25,7 @@ class mainCourseCore extends course_Core {
             if($statement = $pdo->prepare($queries))
             {
                 $statement->bindParam(":details", $param_course_details, PDO::PARAM_STR);
-                $param_course_details = $_POST['data1'];
+                $param_course_details = $coursedata;
                 if($statement->execute())
                 {
                     echo json_encode(array("statusCode" => 200));
@@ -31,6 +34,23 @@ class mainCourseCore extends course_Core {
                 unset($pdo);
             }
         }
+    }
+    protected function testmaincoreinsert($datatest) {
+        // echo json_encode(array("testcode" => $datatest));
+            require_once "../../../database/Private/connection/core.php";
+            if($_SERVER["REQUEST_METHOD"] == "POST") {
+                $querytestinsert = "insert into `dbattendance.tbinsert` values(default, :fname, current_timestamp)";
+                if($stmt = $pdo->prepare($querytestinsert)) {
+                    $stmt->bindParam(":fname", $testparaminsert, PDO::PARAM_STR);
+                    $testparaminsert = $_POST['fname'];
+                    if($stmt->execute()) {
+                        echo json_encode(array("statusCode" => 200));
+
+                    }
+                    unset($stmt);
+                    unset($pdo);
+                }
+            }
     }
     protected function modifyselection($id){
 
