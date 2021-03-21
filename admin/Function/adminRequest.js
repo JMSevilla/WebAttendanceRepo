@@ -40,6 +40,9 @@ async function section_constructPromise(spritearray){
             setTimeout(() => {
                 window.location.href = "http://localhost/webattendancerepo/admin/section";
             }, 1000)
+        } else if(destroyJSON.exceedCode === 400) {
+            swal("Oops!", "You've reached the limit of 8.", "error");
+            return false;
         }
     })
 }
