@@ -26,11 +26,19 @@
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                     Add User
-                    <span class="right badge badge-danger">Development</span>
+                    <span class="right badge badge-danger">Closed</span>
                 </p>
             </a>
         </li>
-
+        <li class="nav-item">
+            <a href="#" class="nav-link" >
+                <i class="nav-icon fas fa-plus"></i>
+                <p>
+                    Add Student
+                    <span class="right badge badge-success">Open</span>
+                </p>
+            </a>
+        </li>
         <li class="nav-item menu-close">
             <a href="admin" class="nav-link ">
                 <i class="nav-icon fas fa-code"></i>
