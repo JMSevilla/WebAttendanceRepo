@@ -18,7 +18,7 @@ $('#onsection').click(() => {
 
 const _section_validate = (array) => {
     if (!array.section1) {
-            swal("Oops!", "Empty section please type something", "error");
+            swal.fire("Oops!", "Empty section please type something", "error");
             return false;
         }else {
             section_PromiseAll(array);
@@ -36,12 +36,12 @@ async function section_constructPromise(spritearray){
     await promise.then(response => {
         var destroyJSON = JSON.parse(response);
         if(destroyJSON.statusCode === 200) {
-            swal("Nice!" , "Successfully Added!", "success");
+            swal.fire("Nice!" , "Successfully Added!", "success");
             setTimeout(() => {
                 window.location.href = "http://localhost/webattendancerepo/admin/section";
             }, 1000)
         } else if(destroyJSON.exceedCode === 400) {
-            swal("Oops!", "You've reached the limit of 8.", "error");
+            swal.fire("Oops!", "You've reached the limit of 8.", "error");
             return false;
         }
     })
@@ -72,7 +72,7 @@ $('#submitcourse').click(() => {
 const course_admin_settings_validate = () => {
     if(!coursename.value)
     {
-        swal("Oops!", "Course name is empty", "warning");
+        swal.fire("Oops!", "Course name is empty", "warning");
         return false;
     }
     else{
@@ -102,7 +102,7 @@ const __constructPromiseModify = () => {
         console.log(response);
         var jsonbreak = JSON.parse(response);
         if(jsonbreak.statusCode == 200) {
-            swal("Yey!", "Successfully Updated!", "success");
+            swal.fire("Yey!", "Successfully Updated!", "success");
             setTimeout(() => {
                 window.location.href = "http://localhost/webattendancerepo/admin/course";
             }, 1000)
@@ -139,7 +139,7 @@ const constructPromise = () => {
         var hammer = JSON.parse(response);
         if(hammer.statusCode == 200)
         {
-            swal("Yey!", "Successfully Added!", "success");
+            swal.fire("Yey!", "Successfully Added!", "success");
             setTimeout(() => {
                 window.location.href = "http://localhost/webattendancerepo/admin/course";
             }, 1000)

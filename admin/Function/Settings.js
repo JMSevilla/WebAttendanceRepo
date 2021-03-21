@@ -16,7 +16,7 @@ $('#yearadd').click(() => {
 const year_validate = (array) => {
     if(!array.data1)
     {
-        swal("Oops!", "Empty year data field!", "error");
+        Swal.fire("Oops!", "Empty year data field!", "error");
         return false;
     }else{
         promisingAll(array);
@@ -36,12 +36,12 @@ const __constructYearPromise = (array) => {
             console.log(response);
             var breaker = JSON.parse(response);
             if(breaker.statusCode == 200){
-                swal("Yey!", "Successfully Added!", "success");
+                swal.fire("Yey!", "Successfully Added!", "success");
                 setTimeout(() => {
                     window.location.href = "http://localhost/webattendancerepo/admin/yearconfig";
                 }, 2000)
             } else if(breaker.statusCode == "exceed"){
-                swal("Oops!", "You've reached maximum data on the table", "error");
+                swal.fire("Oops!", "You've reached maximum data on the table", "error");
                 return false;
             }
         })
@@ -73,7 +73,7 @@ const yearRevokeConstructor = (id) => {
         console.log(response);
         var y = JSON.parse(response);
         if(y.statusCode == 200){
-            swal("Done!", "Successfully Revoked!", "success");
+            swal.fire("Done!", "Successfully Revoked!", "success");
             setTimeout(() => {
                 window.location.href = "http://localhost/webattendancerepo/admin/yearconfig";
             }, 2000)
@@ -127,7 +127,7 @@ function onsaveprofileadmin(){
 
 function profileprofilevalidate(upfname, uplname) {
     if(!upfname || !uplname){
-        swal("Oops!", "empty fields", "error");
+        swal.fire("Oops!", "empty fields", "error");
         return false;
     }
     else{
@@ -150,12 +150,12 @@ function profilePromise(upfname, uplname)
             console.log(response);
             var hammerism = JSON.parse(response);
             if(hammerism.statusCode === 200){
-                swal("Nice!", "Successfully Update!", "success");
+                swal.fire("Nice!", "Successfully Update!", "success");
                 setTimeout(() => {
                     window.location.href = "http://localhost/webattendancerepo/admin/profile";
                 }, 2000)
             } else if(hammerism.statusCode === 201){
-                swal("Nice!", "Successfully Update!", "success");
+                swal.fire("Nice!", "Successfully Update!", "success");
                 setTimeout(() => {
                     window.location.href = "http://localhost/webattendancerepo/admin/profile";
                 }, 2000)
@@ -184,6 +184,45 @@ function profileEndpoint(testArray, resolve)
         contentType: false,
         success: (rest) => {
             resolve(rest);
+        }
+    })
+}
+
+function onrevokesection(id) {
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: `Yes`,
+        denyButtonText: `No`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            onremove(id);
+        } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    })
+
+}
+
+function onremove(id) {
+    $.ajax({
+        method: 'post',
+        url: 'helpers/api/sectionHelper/sectionHelper',
+        data: {
+            revokesectionTrigger : 1,
+            id: id
+        },
+        success: (response) => {
+            // console.log(response);
+            var hammer = JSON.parse(response);
+            if(hammer.statusCode === 200) {
+                Swal.fire('Successfully Deleted!', '', 'success')
+                setTimeout(() => {
+                    window.location.href = "http://localhost/webattendancerepo/admin/section";
+                }, 1000)
+            }
         }
     })
 }
