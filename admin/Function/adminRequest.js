@@ -38,7 +38,7 @@ async function section_constructPromise(spritearray){
         if(destroyJSON.statusCode === 200) {
             swal("Nice!" , "Successfully Added!", "success");
             setTimeout(() => {
-                window.location.href = "http://localhost/webattendance/admin/section";
+                window.location.href = "http://localhost/webattendancerepo/admin/section";
             }, 1000)
         }
     })
@@ -101,7 +101,7 @@ const __constructPromiseModify = () => {
         if(jsonbreak.statusCode == 200) {
             swal("Yey!", "Successfully Updated!", "success");
             setTimeout(() => {
-                window.location.href = "http://localhost/webattendance/admin/course";
+                window.location.href = "http://localhost/webattendancerepo/admin/course";
             }, 1000)
         }
     })
@@ -138,7 +138,7 @@ const constructPromise = () => {
         {
             swal("Yey!", "Successfully Added!", "success");
             setTimeout(() => {
-                window.location.href = "http://localhost/webattendance/admin/course";
+                window.location.href = "http://localhost/webattendancerepo/admin/course";
             }, 1000)
         }
     })
@@ -192,7 +192,7 @@ const Revoker = (resolve) => {
             if(broker.statusCode == 200)
             {
                 setTimeout(() => {
-                    window.location.href = "http://localhost/webattendance/admin/course";
+                    window.location.href = "http://localhost/webattendancerepo/admin/course";
                 }, 2000)
             }
         }
@@ -263,7 +263,7 @@ function HTTPRetrieve() {
 $("#searchcourse").on("keyup", function () {
     var value = $(this).val().toLowerCase();
     if(!value){
-        window.location.href = "http://localhost/webattendance/admin/course";
+        window.location.href = "http://localhost/webattendancerepo/admin/course";
     }else{
         $("#coursetable tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
