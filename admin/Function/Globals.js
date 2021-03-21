@@ -1,3 +1,7 @@
+// function addDarkmodeWidget() {
+//     new Darkmode().showWidget();
+// }
+// window.addEventListener('load', addDarkmodeWidget);
 
 const post = "post";
 const helpers = "helpers";

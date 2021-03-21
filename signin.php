@@ -19,5 +19,6 @@ if(isset($_SESSION["access"]) || $_SESSION["access"] === true){
     <?php include('components/navigation/navbar.php'); ?>
     <?php include('views/signincontent/signinviews.php'); ?>
     <?php include('includes/scripts/scripts.php'); ?>
+
 </body>
 </html>

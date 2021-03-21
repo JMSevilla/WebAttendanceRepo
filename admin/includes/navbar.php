@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
                     <span class="dropdown-header">Hello! <?php echo $row['firstname']; ?></span>
-                    <div class="dropdown-divider"></div>
+
                     <a href="includes/signout.blade.php" class="dropdown-item">
                         <i class="fas fa-align-left mr-2"></i> Sign out
 
@@ -90,10 +90,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="fas fa-expand-arrows-alt"></i>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <i class="fas fa-th-large"></i>
                 </a>
+            </li>
+            <li class="nav-item">
+<!--                <button class="nav-link" onclick="addDarkmodeWidget()" role="button">-->
+<!--                    <i class="fas fa-eye"></i>-->
+<!--                </button>-->
             </li>
         </ul>
     </nav>
