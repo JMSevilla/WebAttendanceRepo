@@ -43,6 +43,8 @@ const __constructYearPromise = (array) => {
             } else if(breaker.statusCode == "exceed"){
                 swal("Oops!", "You've reached maximum data on the table", "error");
                 return false;
+            }else {
+                alert("test changes");
             }
         })
 }
