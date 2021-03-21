@@ -38,7 +38,7 @@ const __constructYearPromise = (array) => {
             if(breaker.statusCode == 200){
                 swal("Yey!", "Successfully Added!", "success");
                 setTimeout(() => {
-                    window.location.href = "http://localhost/webattendance/admin/yearconfig";
+                    window.location.href = "http://localhost/webattendancerepo/admin/yearconfig";
                 }, 2000)
             } else if(breaker.statusCode == "exceed"){
                 swal("Oops!", "You've reached maximum data on the table", "error");
@@ -75,7 +75,7 @@ const yearRevokeConstructor = (id) => {
         if(y.statusCode == 200){
             swal("Done!", "Successfully Revoked!", "success");
             setTimeout(() => {
-                window.location.href = "http://localhost/webattendance/admin/yearconfig";
+                window.location.href = "http://localhost/webattendancerepo/admin/yearconfig";
             }, 2000)
         }
     })
@@ -152,12 +152,12 @@ function profilePromise(upfname, uplname)
             if(hammerism.statusCode === 200){
                 swal("Nice!", "Successfully Update!", "success");
                 setTimeout(() => {
-                    window.location.href = "http://localhost/webattendance/admin/profile";
+                    window.location.href = "http://localhost/webattendancerepo/admin/profile";
                 }, 2000)
             } else if(hammerism.statusCode === 201){
                 swal("Nice!", "Successfully Update!", "success");
                 setTimeout(() => {
-                    window.location.href = "http://localhost/webattendance/admin/profile";
+                    window.location.href = "http://localhost/webattendancerepo/admin/profile";
                 }, 2000)
             }
         })
