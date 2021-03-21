@@ -41,7 +41,7 @@
                     $OauthImage = explode(".", $_FILES["file"]["name"]);
                     $extension = end($OauthImage);
                     $imagename = rand(100, 999) . '.' . $extension;
-                    $location = 'C:\\wamp64\\www\\webattendance\\admin\\profileImage\\' . $imagename;
+                    $location = 'C:\\wamp64\\www\\WebAttendanceRepo\\admin\\profileImage\\' . $imagename;
                     move_uploaded_file($_FILES["file"]["tmp_name"], $location);
                     $dev = "CALL route_profile(:fname, :lname, :image, :id)";
 

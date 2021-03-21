@@ -20,7 +20,7 @@
       <td><?php echo $row['sectionname']; ?></td>
       <td><?php echo $row['created_at']; ?></td>
       <td>
-          <button class="btn btn-danger" style="width: 100%;">Revoke</button>
+          <button class="btn btn-danger" onclick="onrevokesection(<?php echo $row['id']; ?>)" style="width: 100%;">Revoke</button>
       </td>
     </tr>
     <?php
