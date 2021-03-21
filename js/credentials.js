@@ -27,7 +27,7 @@ const credentialsConstruct = () => {
         if(broker.statusCode == 200){
             swal("Yey!", "Successfully Signed in", "success");
             setTimeout(() => {
-                window.location.href = "http://localhost/webattendance/admin/admin"
+                window.location.href = "http://localhost/webattendancerepo/admin/admin"
             }, 2000)
         } else if (broker.error == 404){
             swal("Oops!", "Invalid password please try again..", "error");
